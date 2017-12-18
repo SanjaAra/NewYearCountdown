@@ -9,6 +9,9 @@ body {
   font-weight: bold;
   margin: 0;
   padding: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 
@@ -21,7 +24,17 @@ body {
   top: 0;
   left: 0;
   z-index: 1;
+  -webkit-animation: snow 20s linear infinite;
   animation: snow 20s linear infinite;
+}
+
+@-webkit-keyframes snow {
+  from {
+    background-position: 0px 0px, 0px 0px, 0px 0px;
+  }
+  to {
+    background-position: 500px 1000px, 200px 400px, -100px 300px;
+  }
 }
 
 @keyframes snow {
@@ -45,7 +58,11 @@ p {
 }
 
 .counter-ny {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
@@ -84,6 +101,7 @@ Media Query
     width: 75px;
     line-height: 75px;
     border-radius: 8px;
+    -webkit-box-shadow: 0 0 4px 4px #c0cee8;
     box-shadow: 0 0 4px 4px #c0cee8;
   }
 }
@@ -104,6 +122,7 @@ Media Query
     width: 100px;
     line-height: 100px;
     border-radius: 10px;
+    -webkit-box-shadow: 0 0 6px 6px #c0cee8;
     box-shadow: 0 0 6px 6px #c0cee8;
   }
 }
@@ -120,6 +139,7 @@ Media Query
     font-size: 70px;
     width: 120px;
     line-height: 120px;
+    -webkit-box-shadow: 0 0 8px 8px #c0cee8;
     box-shadow: 0 0 8px 8px #c0cee8;
   }
 }
@@ -137,6 +157,7 @@ Media Query
     font-size: 80px;
     width: 146px;
     line-height: 146px;
+    -webkit-box-shadow: 0 0 8px 8px #c0cee8;
     box-shadow: 0 0 8px 8px #c0cee8;
   }
 }
