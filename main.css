@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Philosopher:400,700&subset=cyrillic-ext");
 body {
   background-image: url("img/background-01.jpg");
-  //background-attachment: fixed;
-  //background-position: center;
+  background-attachment: fixed;
+  background-position: center;
   background-size: cover;
   color: #fff;
   font-family: "Philosopher", sans-serif;
