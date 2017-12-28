@@ -2,6 +2,7 @@ let mainCountdowd = document.querySelector('#main-countdowd'),
   mainMessages = document.querySelector('#main-messages'),
   greetingHolder = document.querySelector('#greetingHolder'),
   snow = document.querySelectorAll('.snow')[0],
+  body = document.querySelector('body'),
   times = document.querySelectorAll('.time'),
   nyMilisec = Date.parse("2018-01-01T00:00:00"),
   // 2018-01-01T00:00:00
@@ -53,10 +54,11 @@ function countdown(ms) {
   times[3].innerHTML = sec;
 }
 
-// (function snowflake() {
-//   let h = window.innerWidth;
-//   snow.style.height = h + 'px';
-// }());
+(function snowflake() {
+  let h = window.innerWidth;
+  snow.style.height = h + 'px';
+  body.style.height = h + 'px';
+}());
 
 
 function messageRotation() {
