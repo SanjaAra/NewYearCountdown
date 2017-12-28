@@ -3,9 +3,7 @@ let mainCountdowd = document.querySelector('#main-countdowd'),
   greetingHolder = document.querySelector('#greetingHolder'),
   snow = document.querySelectorAll('.snow')[0],
   times = document.querySelectorAll('.time'),
-  nyMilisec = Date.parse("2017-12-28T01:01:00"),
-  // 2018-01-01T00:00:00
-  // 2017-12-28T00:34:00
+  nyMilisec = Date.parse("2018-01-01T00:00:00"),
   today = new Date().getTime(),
   toNYtime = nyMilisec - today;
 
