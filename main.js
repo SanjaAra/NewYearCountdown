@@ -1,76 +1,90 @@
-var wrapp = document.querySelector('.wrapp');
-var winner = document.querySelector('.winner');
-var xo = "O";
-var endGame = false;
+let mainCountdowd = document.querySelector('#main-countdowd'),
+  mainMessages = document.querySelector('#main-messages'),
+  greetingHolder = document.querySelector('#greetingHolder'),
+  snow = document.querySelectorAll('.snow')[0],
+  times = document.querySelectorAll('.time'),
+  nyMilisec = Date.parse("2017-12-28T01:01:00"),
+  // 2018-01-01T00:00:00
+  // 2017-12-28T00:34:00
+  today = new Date().getTime(),
+  toNYtime = nyMilisec - today;
 
-createTable();
-
-var boxes = document.getElementsByClassName('box');
-
-var lines = [
-    [boxes[0], boxes[1], boxes[2]],
-    [boxes[3], boxes[4], boxes[5]],
-    [boxes[6], boxes[7], boxes[8]],
-    [boxes[0], boxes[3], boxes[6]],
-    [boxes[1], boxes[4], boxes[7]],
-    [boxes[2], boxes[5], boxes[8]],
-    [boxes[0], boxes[4], boxes[8]],
-    [boxes[2], boxes[4], boxes[6]]
-]
-
-for (var i = 0; i < boxes.length; i++) {
-    boxes[i].addEventListener('click', insertSymbol)
+if (toNYtime < 0) {
+  mainCountdowd.style.display = "none";
+  mainMessages.style.display = "block";
+  messageRotation;
+} else {
+  countdown(toNYtime);
 }
 
-function insertSymbol() {
-    (xo == "O") ? xo = "X": xo = "O";
-    this.innerHTML = xo;
-    this.classList.add('active');
-    if (!endGame) {
-        compMove();
-        checkLines();
-    }
+let time = setInterval(function() {
+  today = new Date().getTime();
+  toNYtime = nyMilisec - today;
 
+  if (toNYtime > 0) {
+    countdown(toNYtime);
+  } else {
+    clearInterval(time);
+    messageRotation();
+  }
+
+}, 1000)
+
+function countdown(ms) {
+  mainCountdowd.style.display = "block";
+  mainMessages.style.display = "none";
+
+  let day = Math.floor(ms / (24 * 60 * 60 * 1000)),
+    dayMsRest = ms % (24 * 60 * 60 * 1000),
+    our = Math.floor(dayMsRest / (60 * 60 * 1000)),
+    ourMsRest = dayMsRest % (60 * 60 * 1000),
+    min = Math.floor(ourMsRest / (60 * 1000)),
+    minMsRest = ourMsRest % (60 * 1000),
+    sec = Math.floor(minMsRest / 1000);
+
+  (day < 10) ? day = '0' + day: day;
+  (our < 10) ? our = '0' + our: our;
+  (min < 10) ? min = '0' + min: min;
+  (sec < 10) ? sec = '0' + sec: sec;
+
+  times[0].innerHTML = day;
+  times[1].innerHTML = our;
+  times[2].innerHTML = min;
+  times[3].innerHTML = sec;
 }
 
-function checkLines() {
-    for (let i = 0; i < lines.length; i++) {
-        let box1 = lines[i][0];
-        let box2 = lines[i][1];
-        let box3 = lines[i][2];
-        if (box1.innerHTML == box2.innerHTML && box1.innerHTML == box3.innerHTML && box1.innerHTML != "") {
-            box1.style.background = "tomato";
-            box2.style.background = "tomato";
-            box3.style.background = "tomato";
-            winner.innerHTML = "<h1>Winner is " + box1.innerHTML + "</h1>";
-            endGame = true;
-        }
-    }
-}
+(function snowflake() {
+  let h = window.innerWidth;
+  snow.style.height = h + 'px';
+}());
 
 
+function messageRotation() {
+  mainCountdowd.style.display = "none";
+  mainMessages.style.display = "block";
 
-function createTable() {
-    var text = '';
-    for (let i = 0; i < 9; i++) {
-        text += '<div class="box"></div>';
-    }
-    wrapp.innerHTML = text;
-}
+  let greetingMsg = ["Све што је добро, што се срећом зове, нека вас прати од године нове. Све што је лоше и немир ствара, нека однесе година стара.", "Када се склопе казаљке сата и Нова година покуца на врата, нека вам се испуне све жеље, нека тугу отера весеље.", "Нова је година шанса нова, да кренеш путем својих снова, да нижеш успехе, оствариш жеље, да имаш праве пријатеље.", "Нека све што тугу ствара, однесе ова година стара, а година нова нека донесе, пуно среће и здравља, а тугу однесе."];
 
-function compMove() {
-    (xo == "O") ? xo = "X": xo = "O";
-    var emptyFields = [];
-    for (var i = 0; i < boxes.length; i++) {
-        if (boxes[i].innerHTML == "") {
-            emptyFields.push(boxes[i])
-        }
-    }
-    var rand = Math.floor(Math.random() * emptyFields.length);
-    setTimeout(() => {
-        emptyFields[rand].classList.add('active');
-        emptyFields[rand].innerHTML = xo;
-        checkLines()
-    }, 500)
+  message()
 
-}
+  function message() {
+    let msgIn = Math.floor(Math.random() * greetingMsg.length);
+    let oneMsg = greetingMsg[msgIn].split('');
+    let i = 0
+    greetingHolder.style.animation = "tekst 3s ease-in";
+    let loop = setInterval(function() {
+      greetingHolder.innerHTML += oneMsg[i];
+      i++;
+      if (i == oneMsg.length) {
+        clearInterval(loop);
+        greetingHolder.style.animation = "";
+        setTimeout(function() {
+          greetingHolder.innerHTML = '';
+
+        }, 700)
+
+        setTimeout(message, 1000)
+      }
+    }, 200);
+  }
+};
