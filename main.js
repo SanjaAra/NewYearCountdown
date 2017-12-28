@@ -4,6 +4,8 @@ let mainCountdowd = document.querySelector('#main-countdowd'),
   snow = document.querySelectorAll('.snow')[0],
   times = document.querySelectorAll('.time'),
   nyMilisec = Date.parse("2018-01-01T00:00:00"),
+  // 2018-01-01T00:00:00
+  // 2017-12-28T00:34:00
   today = new Date().getTime(),
   toNYtime = nyMilisec - today;
 
@@ -51,10 +53,10 @@ function countdown(ms) {
   times[3].innerHTML = sec;
 }
 
-(function snowflake() {
-  let h = window.innerWidth;
-  snow.style.height = h + 'px';
-}());
+// (function snowflake() {
+//   let h = window.innerWidth;
+//   snow.style.height = h + 'px';
+// }());
 
 
 function messageRotation() {
