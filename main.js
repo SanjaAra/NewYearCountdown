@@ -54,11 +54,11 @@ function countdown(ms) {
   times[3].innerHTML = sec;
 }
 
-(function snowflake() {
-  let h = window.innerWidth;
-  snow.style.height = h + 'px';
-  body.style.height = h + 'px';
-}());
+// (function snowflake() {
+//   let h = window.innerWidth;
+//   snow.style.height = h + 'px';
+//   body.style.height = h + 'px';
+// }());
 
 
 function messageRotation() {
