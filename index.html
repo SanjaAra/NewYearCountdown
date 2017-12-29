@@ -29,39 +29,42 @@
 </head>
 
 <body>
-  <div class="snow">
-    <div class="container-fluid">
-      <div id="main-countdowd" class="container">
-        <h1 class="text-center">Новогодишње одбројавање</h1>
-        <div class="counter-ny">
-          <div class="counter">
-            <div class="time text-center"></div>
-            <p>дана</p>
+  <div class="row">
+    <div class="snow">
+      <div class="container-fluid">
+        <div id="main-countdowd" class="container">
+          <h1 class="text-center">Новогодишње одбројавање</h1>
+          <div class="counter-ny">
+            <div class="counter">
+              <div class="time text-center"></div>
+              <p>дана</p>
+            </div>
+            <div class="counter">
+              <div class="time text-center"></div>
+              <p>сати</p>
+            </div>
+            <div class="counter">
+              <div class="time text-center"></div>
+              <p>минута</p>
+            </div>
+            <div class="counter">
+              <div class="time text-center red"></div>
+              <p>секунди</p>
+            </div>
           </div>
-          <div class="counter">
-            <div class="time text-center"></div>
-            <p>сати</p>
-          </div>
-          <div class="counter">
-            <div class="time text-center"></div>
-            <p>минута</p>
-          </div>
-          <div class="counter">
-            <div class="time text-center red"></div>
-            <p>секунди</p>
-          </div>
+          <p class="text-center">... до 1. јануара 2018. године</p>
         </div>
-        <p class="text-center">... до 1. јануара 2018. године</p>
+
+        <div id="main-messages" class="container">
+          <h1 class="text-center red">Срећна Нова Година!!!</h1>
+
+          <p id="greetingHolder" class="text-center"></p>
+        </div>
+
       </div>
-
-      <div id="main-messages" class="container">
-        <h1 class="text-center red">Срећна Нова Година!!!</h1>
-
-        <p id="greetingHolder" class="text-center"></p>
-      </div>
-
     </div>
   </div>
+  <footer></footer>
   <script src="main.js"></script>
 </body>
 
