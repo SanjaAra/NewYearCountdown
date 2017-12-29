@@ -5,6 +5,7 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  min-height: 100%;
   color: #fff;
   font-family: "Philosopher", sans-serif;
   font-weight: bold;
