@@ -3,7 +3,7 @@ body {
   background-image: url("img/background-01.jpg");
   background-attachment: fixed;
   background-position: center;
-  background-size: cover;
+  background-size: auto 100%;
   background-repeat: no-repeat;
   color: #fff;
   font-family: "Philosopher", sans-serif;
@@ -14,7 +14,6 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  position: relative;
 }
 
 .snow {
@@ -98,15 +97,6 @@ p {
   }
 }
 
-footer {
-  height: 50px;
-  background-color: pink;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-}
-
 /*********
 Media Query
 ************/
@@ -153,6 +143,9 @@ Media Query
 }
 
 @media (min-width: 992px) {
+  body {
+    background-size: cover;
+  }
   h1 {
     font-size: 55px;
     margin-bottom: 30px;
