@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Philosopher:400,700&subset=cyrillic-ext");
+html {
+  height: 100%;
+}
 body {
   background-image: url("img/background-01.jpg");
   background-attachment: fixed;
