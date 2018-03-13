@@ -4,7 +4,7 @@ let mainCountdowd = document.querySelector('#main-countdowd'),
   snow = document.querySelectorAll('.snow')[0],
   body = document.querySelector('body'),
   times = document.querySelectorAll('.time'),
-  nyMilisec = Date.parse("2018-01-14T00:00:00"),
+  nyMilisec = Date.parse("2019-01-01T00:00:00"),
   // 2018-01-01T00:00:00
   // 2017-12-28T00:34:00
   today = new Date().getTime(),
